@@ -40,6 +40,18 @@ pip install --user textual
 ln -s "$PWD/ghstats.py" ~/.local/bin/ghstats
 ```
 
+## Project structure
+
+```
+ghstats.py        # launcher — adds repo root to sys.path, calls main()
+ghstats/
+├── api.py        # GitHubAPI — gh CLI calls, payload quirks, data bundles
+├── widgets.py    # neo-glitch palette, NeoPanel, rich table builders
+├── ui.py         # dashboard construction (hero, traffic, referrers, commits)
+├── app.py        # GhStats App: bindings, workers, refresh cycle
+└── styles.tcss   # Textual stylesheet
+```
+
 Optionally, add a keybind in Omarchy/Hyprland:
 
 ```lua
