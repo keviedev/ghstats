@@ -133,6 +133,7 @@ class GhStats(App):
     Screen { background: #07040c; }
     #body { height: 1fr; }
     NeoPanel { border: none; padding: 0 1; }
+    NeoPanel.clones-box { border: round #5d4a7a; margin: 0 0 1 0; }
     """
     BINDINGS = [
         ("r", "refresh", "Refresh"),
@@ -240,6 +241,7 @@ class GhStats(App):
 
         clones_panel = make_traffic_panel(
             f"CLONES 14d — {clones.get('count', 0)} total / {clones.get('uniques', 0)} unique", clones, "clones", RICH_GREEN)
+        clones_panel.add_class("clones-box")
         views_panel = make_traffic_panel(
             f"VIEWS 14d — {views.get('count', 0)} total / {views.get('uniques', 0)} unique", views, "views", RICH_CYAN)
         traffic_row = Horizontal(clones_panel, views_panel)
